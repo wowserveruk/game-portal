@@ -1,0 +1,13 @@
+<canvas id="c" width="300" height="300"></canvas>
+<script>
+let ctx=c.getContext("2d");
+let x=150;
+onkeydown=e=>{
+if(e.key=='a')x-=10;
+if(e.key=='d')x+=10;
+};
+setInterval(()=>{
+ctx.clearRect(0,0,300,300);
+ctx.fillRect(x,250,20,20);
+},50);
+</script>
