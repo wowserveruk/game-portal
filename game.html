@@ -1,0 +1,23 @@
+<canvas id="c" width="400" height="300"></canvas>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script>
+let s=io("http://localhost:3000");
+let p={x:200,y:150},o={};
+let ctx=c.getContext("2d");
+
+s.on("players",d=>o=d);
+
+setInterval(()=>{
+s.emit("update",p);
+ctx.clearRect(0,0,400,300);
+ctx.fillText("🧝",p.x,p.y);
+Object.values(o).forEach(pp=>ctx.fillText("🧍",pp.x,pp.y));
+},50);
+
+onkeydown=e=>{
+if(e.key=='w')p.y-=5;
+if(e.key=='s')p.y+=5;
+if(e.key=='a')p.x-=5;
+if(e.key=='d')p.x+=5;
+};
+</script>
