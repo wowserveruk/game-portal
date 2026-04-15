@@ -1,0 +1,9 @@
+<canvas id="c" width="300" height="300"></canvas>
+<script>
+let ctx=c.getContext("2d");
+let x=150,y=150;
+setInterval(()=>{
+ctx.clearRect(0,0,300,300);
+ctx.fillRect(x,y,10,10);
+},100);
+</script>
